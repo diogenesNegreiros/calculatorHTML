@@ -9,6 +9,35 @@
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
     <title>Calculatorhtml simples</title>
+    
+    <script language="javascript" type="text/javascript">
+<!--
+	function apagar(){
+		formCalc.TelaCalc.value ="";
+		formCalc.CalcResult.value ="";
+	    }
+	function  apresentar(nun){
+		formCalc.TelaCalc.value += nun;
+		formCalc.CalcResult.value += nun;
+		}
+	function processamento(){
+		formCalc.CalcResult.value = eval(formCalc.TelaCalc.value); 
+		}
+	function operador(op){
+		formCalc.TelaCalc.value += op;
+		formCalc.CalcResult.value = op;
+		}
+		function prioridadeOper(op){
+			formCalc.TelaCalc.value = "("+formCalc.TelaCalc.value+")"+ op;
+		formCalc.CalcResult.value = op;
+		}
+		function porcent(){
+			var resp = formCalc.CalcResult.value;
+			formCalc.CalcResult.value = eval(resp/=10);
+		}
+		
+	//-->
+</script>
   </head>
 
   <body>
@@ -52,7 +81,67 @@ $ git checkout gh-pages
 <a id="rather-drive-stick" class="anchor" href="#rather-drive-stick" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
 
 <p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
+<form id="form1" name="formCalc" >
+  
+  <table width="166" height="237" border="8" bordercolor="#808080">
+    <tr>
+      <td colspan="4" align="center" valign="middle" >
+        <textarea name="TelaCalc" cols="17" readonly id="TelaCalc"   ></textarea> 
+  </td></tr>
+    <tr><td height="26" colspan="4" rowspan="1" align="center" valign="middle"><input name="CalcResult" type="text" disabled id="CalcResult" style="text-align:right" size="20"></td></tr>
+    
+    <tr>
+      <td width="34" align="center"  scope="col">
+      <input type="button" name="button7" id="button" value=" 7 " onClick = apresentar(7)></td>
+      <td width="31" align="center"  scope="col">
+      <input type="button" name="button8" id="button" value=" 8 " onClick = apresentar(8)></td>
+      <td width="34" align="center"  scope="col">
+      <input type="button" name="button9" id="button" value=" 9 " onClick = apresentar(9)></td>
+      <td width="36" align="center"  scope="col">
+      <input type="button" name="button" id="button" value="  /  " onClick = prioridadeOper('/')></td>
+    </tr>
+    <tr>
+      <td align="center" scope="col">
+      <input type="button" name="button4" id="button" value=" 4 " onClick = apresentar(4)></td>
+      <td align="center" scope="col">
+      <input type="button" name="button5" id="button" value=" 5 " onClick = apresentar(5)></td>
+      <td align="center" scope="col">
+      <input type="button" name="button6" id="button" value=" 6 " onClick = apresentar(6)></td>
+      <td align="center" scope="col">
+      <input type="button" name="button" id="button"  value="  *  " onClick = prioridadeOper('*')></td>
+      
+    </tr>
+    <tr>
+     <td align="center" scope="col">
+     <input type="button" name="button1" id="button" value=" 1 " onClick = apresentar(1)></td>
+     <td align="center" scope="col">
+     <input type="button" name="button2" id="button" value=" 2 " onClick = apresentar(2)></td>
+     <td align="center" scope="col">
+     <input type="button" name="button3" id="button" value=" 3 " onClick = apresentar(3)></td>
+     <td align="center" scope="col">
+     <input type="button" name="button" id="button"  value="  -  " onClick = operador('-')></td>
+    </tr>
+     <tr>
+     <td align="center" scope="col">
+     <input type="button" name="button0" id="button"value=" 0 " onClick = apresentar(0)></td>
+     <td align="center" scope="col">
+     <input type="button" name="button" id="button" value=" .  " onClick= apresentar('.')></td>
+     <td align="center" scope="col">
+     <input type="button" name="button" id="button" value=" R " onClick = apresentar('%') on></td>
+     <td align="center" scope="col">
+     <input type="button" name="button" id="button" value=" +  " onClick = operador('+')></td>
+    </tr>
+    
+    
+    <tr>
+     <td height="28" colspan="2" align="center" scope="col">
+     <input type="button" name="button0" id="button" value="     CE    " onClick = apagar()></td>
+     <td align="center" scope="col" colspan="2">
+     <input type="button" name="button" id="button" value="       =       " onClick = processamento()  ></td>
+    
+  </table>
+ 
+</form>
 <h3>
 <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
 
